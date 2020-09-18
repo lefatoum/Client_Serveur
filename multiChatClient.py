@@ -14,7 +14,7 @@ def receive():
         except OSError:
 
 def send(event=None):
-    """ Handles sending of messages. """
+
     msg = my_msg.get()
     my_msg.set("")
     sock.send(bytes(msg, "utf8"))
@@ -23,17 +23,17 @@ def send(event=None):
         top.quit()
 
 def on_closing(event=None):
-    """ This function is to be called when the window is closed. """
+
     my_msg.set("#quit")
     send()
 
 def smiley_button_tieup(event=None):
-    """ Function for smiley button action """
+
     my_msg.set(":)")
     send()
 
 def sad_button_tieup(event=None):
-    """ Function for smiley button action """
+
     my_msg.set(":(")
     send()
 
@@ -49,6 +49,7 @@ msg_list = tkinter.Listbox(messages_frame, height=15, width=70, yscrollcommand=s
 scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
 msg_list.pack(side=tkinter.LEFT, fill=tkinter.BOTH)
 msg_list.pack()
+
 
 messages_frame.pack()
 
@@ -80,4 +81,4 @@ sock.connect(ADDR)
 
 receive_thread = Thread(target=receive)
 receive_thread.start()
-tkinter.mainloop()  
+tkinter.mainloop()

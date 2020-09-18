@@ -28,7 +28,7 @@ msg.attach(part)
 
 server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
-server.login(fromaddr, "valmont7165")
+server.login(fromaddr, "password")
 text = msg.as_string()
 server.sendmail(fromaddr, toaddr, text)
 server.quit()
